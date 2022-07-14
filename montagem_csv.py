@@ -27,15 +27,17 @@ df_charts_nodups = pd.DataFrame(columns=["song_id", "peak_position"]) # Variáve
 '''
     Eduardo, por quê você não simplesmente meteu um "df_acoustic_features.remove_duplicates()"?
     A resposta é que o número de duplicatas no dataset é variável e não tem como eu remover todas as duplicatas, exceto a primeira,
-    diretamente pelo pandas..
+    diretamente pelo pandas.. (não que eu saiba)
     Esse comentário já foi feito pro meu eu do futuro que vai ler isso e pensar "mano, pra quê?"
 '''
 
+# Remoção de duplicatas
 for id in ids:
     id_charts = df_song_chart[df_song_chart.song_id == id] # Separando os charts de cada música por ID
     entry = id_charts[id_charts.peak_position == id_charts.peak_position.max()].drop_duplicates()
     df_charts_nodups = df_charts_nodups.append(entry)
 
+# União dos dois dataframes e exportação pra CSV
 df_charts_nodups.set_index("song_id", inplace=True)
 df_acoustic_features.set_index("song_id", inplace=True)
 
