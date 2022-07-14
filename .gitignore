@@ -1,0 +1,8 @@
+data/acoustic_features.csv
+data/album_chart.csv
+data/album_pop.csv
+data/artist_chart.csv
+data/artist_pop.csv
+data/lyrics.csv
+data/song_chart.csv
+data/song_pop.csv
